@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7.0)
-project(test_uuid CXX)
+project(stduuid CXX)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/catch)
@@ -28,12 +28,13 @@ else()
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -fexceptions -g -Wall")
 endif()
 
-add_executable(test_uuid ${SOURCES} ${headers})
+#add_executable(test_uuid ${SOURCES} ${headers})
+add_library(stduuid ${SOURCES} ${headers})
 
 if(WIN32)
 elseif(APPLE)
 	find_library(CFLIB CoreFoundation)
-	target_link_libraries(test_uuid ${CFLIB})
+	target_link_libraries(stduuid ${CFLIB})
 else()
     FIND_PATH(LIBUUID_INCLUDE_DIRS uuid/uuid.h)
     FIND_LIBRARY(LIBUUID_LIBRARIES uuid)
@@ -62,22 +63,22 @@ else()
 	#	message(FATAL_ERROR
     #   "You might need to run 'sudo apt-get install uuid-dev' or similar")
 	#endif()
-	target_link_libraries(test_uuid ${LIBUUID_LIBRARY})
+	target_link_libraries(stduuid ${LIBUUID_LIBRARY})
 endif()
 
 message(status "** CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
-if(BUILD_TESTS)
-    enable_testing()
-
-    add_test(NAME "test_uuid" COMMAND "test_uuid" "-r compact")
-    set_tests_properties("test_uuid"
-        PROPERTIES
-        PASS_REGULAR_EXPRESSION "Passed all.*")
-    set_tests_properties("test_uuid"
-        PROPERTIES
-        FAIL_REGULAR_EXPRESSION "Failed \\d+ test cases")
-    set_tests_properties("test_uuid"
-        PROPERTIES
-        TIMEOUT 120)
-endif()
+#if(BUILD_TESTS)
+#    enable_testing()
+#
+#    add_test(NAME "test_uuid" COMMAND "test_uuid" "-r compact")
+#    set_tests_properties("test_uuid"
+#        PROPERTIES
+#        PASS_REGULAR_EXPRESSION "Passed all.*")
+#    set_tests_properties("test_uuid"
+#        PROPERTIES
+#        FAIL_REGULAR_EXPRESSION "Failed \\d+ test cases")
+#    set_tests_properties("test_uuid"
+#        PROPERTIES
+#        TIMEOUT 120)
+#endif()
