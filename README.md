@@ -1,8 +1,13 @@
-Getting Your Local Copy
------------------------
+Pre-requisites
+--------------
 * Install CLion
+* Install C++ v20 toolchain (Apple CLang toolchain on Mac)
+* Install Git (command line tools only, no need for Git UI)
+* Create directory /braintree/code/database and give yourself full read/write/execute access to it
+
+Getting a Local Copy for Editing
+-----------------------------------
 * Fork GitHub repository https://github.com/braintree-ltd/stduuid to your GitHub account (forked repository must remain private)
-* Create directory /braintree/code/database/public/stduuid and give yourself full read/write/execute access to it
 * Start CLion
 * From the main menu, select _VCS_, then _Get from Version Control_
 * Enter URL: _github_url_to_your_forked_repository_
@@ -13,6 +18,18 @@ As a result of this process, you will have:
 * your own forked GitHub repository, which can be used to generate PRs into the root repository
 * your local Git repository
 * local copy of all files for editing and building in CLion
+
+Getting a Read-only Local Copy (for dependencies)
+-------------------------------------------------
+* Start CLion
+* From the main menu, select _VCS_, then _Get from Version Control_
+* Enter URL: https://github.com/braintree-ltd/stduuid
+* Enter directory: /braintree/code/database/public/stduuid
+* Hit Clone
+
+As a result of this process, you will have:
+* your local Git repository
+* local copy of all files for building in CLion
 
 stduuid
 -------
