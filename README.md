@@ -1,4 +1,21 @@
-# stduuid
+Getting Your Local Copy
+-----------------------
+* Install CLion
+* Fork GitHub repository https://github.com/braintree-ltd/stduuid to your GitHub account (forked repository must remain private)
+* Create directory /braintree/code/database/public/stduuid and give yourself full read/write/execute access to it
+* Start CLion
+* From the main menu, select _VCS_, then _Get from Version Control_
+* Enter URL: _github_url_to_your_forked_repository_
+* Enter directory: /braintree/code/database/public/stduuid
+* Hit Clone
+
+As a result of this process, you will have:
+* your own forked GitHub repository, which can be used to generate PRs into the root repository
+* your local Git repository
+* local copy of all files for editing and building in CLion
+
+stduuid
+-------
 A C++17 cross-platform single-header library implementation **for universally unique identifiers**, simply know as either UUID or GUID (mostly on Windows). A UUID is a 128-bit number used to uniquely identify information in computer systems, such as database table keys, COM interfaces, classes and type libraries, and many others.
 
 [![Build Status](https://travis-ci.org/mariusbancila/stduuid.svg?branch=master)](https://travis-ci.org/mariusbancila/stduuid)
@@ -8,7 +25,8 @@ For information about UUID/GUIDs see:
 * [Universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier)
 * [A Universally Unique IDentifier (UUID) URN Namespace](https://www.ietf.org/rfc/rfc4122.txt)
 
-## Library overview
+Library Overview
+----------------
 Although the specification puts the uuid library in the `std` namespace, this implementation uses the namespace `uuids` for this purpose, in order to make the library usable without violating the restrictions imposed on the `std` namespace. The following types and utilities are available:
 
 Basic types:
@@ -53,14 +71,16 @@ Other:
 | `operator<<` | to write a UUID to an output stream using the canonical textual representation. |
 | `to_string()` | creates a string with the canonical textual representation of a UUID. |
 
-## Library history
+Library History
+---------------
 This library is an implementation of the proposal [P0959](P0959.md).
 
 **As the proposal evolves based on the standard committee and the C++ community feedback, this library implementation will reflect those changes.** 
 
 See the revision history of the proposal for history of changes.
 
-## Using the library
+Using the library
+-----------------
 The following is a list of examples for using the library:
 * Creating a nil UUID
 
@@ -260,10 +280,12 @@ The following is a list of examples for using the library:
 ## Support
 The library is supported on all major operating systems: Windows, Linux and Mac OS.
 
-## Dependencies
+Dependencies
+------------
 Because no major compiler supports `std::span` yet the [Microsoft Guidelines Support Library](https://github.com/Microsoft/GSL) (aka GSL) is used for its span implementation (from which the standard version was defined). 
 
-## Testing
+Testing
+-------
 A testing project is available in the sources. To build and execute the tests do the following:
 * Clone or download this repository
 * Create a `build` directory in the root directory of the sources
@@ -271,5 +293,6 @@ A testing project is available in the sources. To build and execute the tests do
 * Build the project created in the previous step
 * Run the executable.
 
-## Credits
+Credits
+-------
 The SHA1 implementation is based on the [TinySHA1](https://github.com/mohaps/TinySHA1) library.
